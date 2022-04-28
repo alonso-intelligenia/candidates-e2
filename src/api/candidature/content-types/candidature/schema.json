@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidatures",
+  "info": {
+    "singularName": "candidature",
+    "pluralName": "candidatures",
+    "displayName": "Candidature",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "original_created": {
+      "type": "datetime",
+      "required": true
+    },
+    "original_modified": {
+      "type": "datetime",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "average_score": {
+      "type": "integer",
+      "required": false,
+      "max": 100
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "assessment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::assessment.assessment",
+      "inversedBy": "candidatures"
+    },
+    "candidate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::candidate.candidate",
+      "inversedBy": "candidatures"
+    },
+    "candidate_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::candidate-profile.candidate-profile",
+      "mappedBy": "candidature"
+    },
+    "test_results": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::test-result.test-result",
+      "mappedBy": "candidature"
+    },
+    "original_uuid": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

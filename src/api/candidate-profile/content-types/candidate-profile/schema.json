@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidate_profiles",
+  "info": {
+    "singularName": "candidate-profile",
+    "pluralName": "candidate-profiles",
+    "displayName": "CandidateProfile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "highest_education": {
+      "type": "string",
+      "required": false
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "country_name": {
+      "type": "string"
+    },
+    "candidature": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::candidature.candidature",
+      "inversedBy": "candidate_profiles"
+    }
+  }
+}

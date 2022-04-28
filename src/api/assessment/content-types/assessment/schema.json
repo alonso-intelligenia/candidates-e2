@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assessments",
+  "info": {
+    "singularName": "assessment",
+    "pluralName": "assessments",
+    "displayName": "Assessment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "original_id": {
+      "type": "biginteger",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "job_role_name": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "datetime_of_expiry": {
+      "type": "datetime",
+      "required": true
+    },
+    "company_name": {
+      "type": "string",
+      "required": true
+    },
+    "original_modified": {
+      "type": "datetime",
+      "required": true
+    },
+    "locale": {
+      "type": "string",
+      "required": true
+    },
+    "candidatures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::candidature.candidature",
+      "mappedBy": "assessment"
+    }
+  }
+}
